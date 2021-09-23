@@ -33,6 +33,7 @@ public class PublishRepository {
             conn.setRequestMethod("POST");
             String auth = String.format("Token %s", Configuration.TOKEN);
             conn.setRequestProperty("Authorization", auth);
+            conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
 
             JSONObject json = new JSONObject();
@@ -43,6 +44,8 @@ public class PublishRepository {
 
             String params = json.toString();
 
+//            String params = "home=1&room=1&device=" + id + "&vol=" + voltage;
+
             DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
             wr.writeBytes(params);
             wr.flush();
@@ -51,6 +54,7 @@ public class PublishRepository {
             int responseCode = conn.getResponseCode();
             Log.v("TAG", "Sending 'POST' request to URL : " + url.toString());
             Log.v("TAG", "Response Code : " + responseCode);
+            Log.d("STR", params);
 
             conn.disconnect();
         } catch (Exception e) {

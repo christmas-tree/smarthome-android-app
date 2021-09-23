@@ -1,8 +1,8 @@
 package com.example.mqtt;
 
 public class Configuration {
-    public static String MQTT_IP = "172.20.10.3:1883";
-    public static String SERVER_IP = "http://192.168.43.180:8000/api/";
+    public static String MQTT_IP = "192.168.1.10:1883";
+    public static String SERVER_IP = "http://192.168.1.10:8000/api/";
     public static String PREFNAME = "Smarthome";
     public static String TOKEN = null;
 
